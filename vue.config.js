@@ -19,18 +19,6 @@ module.exports = {
     productionSourceMap: false, //js不生成map文件
     lintOnSave: true, //保存时检查eslint
     // css相关配置
-    css: {
-        // 是否生成css  map文件
-        sourceMap: false,
-        // 默认情况下，只有 *.module.[ext] 结尾的文件才会被视作 CSS Modules 模块
-        modules: false,
-        // css预设器配置项
-        loaderOptions: {
-            sass: {
-                data: '@import "@/theme/index.scss";' //sass全局变量文件
-            }
-        }
-    },
     // webpack-dev-server 相关配置
     devServer: {
         //请求代理
@@ -64,21 +52,9 @@ module.exports = {
                         // 生成文件的路径，也可以与webpakc打包的一致。
                         // 下面这句话非常重要！！！
                         // 这个目录只能有一级，如果目录层次大于一级，在生成的时候不会有任何错误提示，在预渲染的时候只会卡着不动。
-                        staticDir: path.join(__dirname, 'dist'),
+                        staticDir: path.join(__dirname, './dist'),
                         // 对应自己的路由文件，比如a有参数，就需要写成 /a/param1。
-                        routes: [
-                            '/',
-                            '/AutoForm',
-                            '/GoTop',
-                            '/Search',
-                            '/Upload',
-                            '/AutoImg',
-                            '/Feedback',
-                            '/Actionsheet',
-                            '/DatetimePicker',
-                            '/Infinitescroll',
-                            '*'
-                        ],
+                        routes: ['/about'],
                         // 这个很重要，如果没有配置这段，也不会进行预编译
                         renderer: new Renderer({
                             inject: {
